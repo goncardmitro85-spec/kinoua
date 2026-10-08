@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="KinoUA — каталог класичного кіно, public domain та вільно ліцензованих фільмів. Пошук, жанри, описи та легальний перегляд.">
+<meta name="theme-color" content="#0b0d10">
+<title>KinoUA — легальний каталог кіно</title>
+<style>
+:root{--bg:#080a0e;--panel:#12161d;--panel2:#191e27;--text:#f5f7fa;--muted:#9aa3af;--accent:#e50914;--line:#252c36}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif}
+a{color:inherit}.top{position:sticky;top:0;z-index:20;background:#0d1015ee;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;padding:13px 20px;display:flex;align-items:center;gap:18px}.logo{font-size:26px;font-weight:900;color:#ff3340;text-decoration:none}.logo b{color:#fff}
+.search{flex:1;max-width:570px;background:#1b2029;border:1px solid #303845;border-radius:11px;padding:12px 14px;color:#fff;outline:0}.search:focus{border-color:#677180}
+.links{display:flex;gap:15px}.links a{text-decoration:none;color:#cdd2da}
+.hero{background:linear-gradient(90deg,#0b0e13 5%,#0b0e13e8 42%,#0b0e1350),url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero-in{max-width:1200px;margin:auto;padding:80px 20px}.hero h1{font-size:48px;max-width:700px;margin:0 0 14px}.hero p{max-width:700px;color:#c7cbd2;line-height:1.7}.cta{display:inline-block;background:var(--accent);padding:13px 20px;border-radius:9px;text-decoration:none;font-weight:800;margin-top:8px}
+.container{max-width:1200px;margin:auto;padding:25px 20px}.toolbar{display:flex;flex-wrap:wrap;gap:9px;margin:15px 0 25px}.chip{border:1px solid var(--line);background:var(--panel);color:#ddd;padding:9px 13px;border-radius:20px;cursor:pointer}.chip.active{background:#eee;color:#111}
+.ad{min-height:82px;border:1px dashed #39414d;background:#0e1116;color:#6f7885;display:flex;align-items:center;justify-content:center;border-radius:10px;margin:20px 0;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.18s}.card:hover{transform:translateY(-4px);border-color:#454e5b}.poster{width:100%;aspect-ratio:2/3;object-fit:cover;background:#222}.info{padding:13px}.title{font-weight:800;font-size:16px}.meta{color:var(--muted);font-size:12px;margin-top:6px;line-height:1.5}.tag{display:inline-block;margin-top:9px;font-size:10px;padding:4px 6px;border-radius:5px;background:#242b35;color:#cdd2d9}.watch{width:100%;margin-top:10px;padding:10px;border:0;border-radius:8px;background:var(--accent);color:white;font-weight:800;cursor:pointer}
+.section-title{margin-top:35px}.empty{padding:40px;text-align:center;color:var(--muted);display:none}
+.modal{display:none;position:fixed;inset:0;z-index:50;background:#000e;align-items:center;justify-content:center;padding:14px}.modal-box{width:min(1050px,100%);background:#11151b;border:1px solid #323a46;border-radius:13px;overflow:hidden}.modal-bar{padding:12px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center}.close{border:0;background:#2a3039;color:#fff;padding:8px 11px;border-radius:7px;cursor:pointer}.player{width:100%;aspect-ratio:16/9;background:#000;border:0}.modal-text{padding:13px 15px;color:#aab1bc;line-height:1.5}
+footer{border-top:1px solid var(--line);margin-top:45px;padding:35px 20px;color:#858e9b}.foot{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}.foot a{display:block;margin:7px 0;color:#aeb5bf;text-decoration:none}.copy{text-align:center;margin-top:25px;font-size:12px}
+.page{display:none;max-width:850px;margin:auto;line-height:1.75;color:#cbd0d7}.page h2{color:#fff}
+@media(max-width:750px){.links{display:none}.hero-in{padding:55px 20px}.hero h1{font-size:34px}.grid{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr}.nav{padding:12px}.search{max-width:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="nav">
+<a class="logo" href="#" onclick="showHome();return false">Kino<b>UA</b></a>
+<input id="search" class="search" placeholder="🔍 Пошук фільмів, жанрів..." oninput="render()">
+<div class="links"><a href="#catalog" onclick="showHome()">Каталог</a><a href="#about" onclick="showPage('about')">Про сайт</a></div>
+</div></header>
+
+<section id="home">
+<section class="hero"><div class="hero-in"><h1>Кіно, яке можна дивитися легально</h1><p>KinoUA — каталог класичного кіно та творів із відкритим правовим статусом. Ми додаємо власні описи, пошук і зручну навігацію, а перегляд ведемо з джерела, де доступ до відео дозволений.</p><a class="cta" href="#catalog">Перейти до каталогу</a></div></section>
+<main class="container" id="catalog">
+<div class="ad">РЕКЛАМНИЙ БЛОК · Після підключення рекламної мережі тут буде реклама</div>
+<h2 class="section-title">🎬 Каталог</h2>
+<div class="toolbar">
+<button class="chip active" onclick="setGenre('all',this)">Усі</button><button class="chip" onclick="setGenre('драма',this)">Драма</button><button class="chip" onclick="setGenre('вестерн',this)">Вестерн</button><button class="chip" onclick="setGenre('документальний',this)">Документальні</button><button class="chip" onclick="setGenre('анімація',this)">Анімація</button><button class="chip" onclick="setGenre('історичний',this)">Історичні</button>
+</div>
+<div id="movies" class="grid"></div><div id="empty" class="empty">Нічого не знайдено. Спробуй іншу назву або жанр.</div>
+<div class="ad">РЕКЛАМНИЙ БЛОК</div>
+<section>
+<h2>Чому KinoUA може заробляти</h2>
+<p style="color:#aeb5bf;line-height:1.7">Модель сайту: корисний каталог + оригінальні описи + пошуковий трафік + реклама. Після появи стабільної аудиторії можна додати партнерські пропозиції, платні розміщення та інші легальні джерела доходу.</p>
+</section>
+</main>
+</section>
+
+<section id="page" class="container page"></section>
+
+<footer><div class="foot">
+<div><strong>KinoUA</strong><p>Каталог класичного та відкритого кіно. Ми не розміщуємо піратські копії.</p></div>
+<div><strong>Інформація</strong><a href="#" onclick="showPage('about');return false">Про сайт</a><a href="#" onclick="showPage('rules');return false">Правила</a><a href="#" onclick="showPage('privacy');return false">Конфіденційність</a></div>
+<div><strong>Зв'язок</strong><a href="mailto:contact@kinoua.example">contact@kinoua.example</a></div>
+</div><div class="copy">© 2026 KinoUA</div></footer>
+
+<div id="modal" class="modal" onclick="if(event.target===this)closePlayer()"><div class="modal-box">
+<div class="modal-bar"><strong id="pt"></strong><button class="close" onclick="closePlayer()">✕</button></div>
+<iframe id="player" class="player" allowfullscreen allow="fullscreen"></iframe>
+<div class="modal-text" id="pd"></div>
+</div></div>
+
+<script>
+const films=[
+["The Great Train Robbery",1903,"Вестерн, Історичний","Класична коротка стрічка, одна з найвідоміших ранніх робіт американського кіно.","https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/item/00694220/"],
+["Within Our Gates",1920,"Драма, Історичний","Німий фільм Оскара Мішо, важлива робота раннього американського кіно.","https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/item/2024600507/"],
+["Popeye the Sailor Meets Sindbad the Sailor",1936,"Анімація, Пригоди","Класична анімаційна пригода про Попая та Синдбада.","https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["St. Louis Blues",1929,"Музичний, Короткометражний","Музична класика, пов'язана з творчістю Бессі Сміт.","https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["The Hitch-Hiker",1953,"Трилер, Кримінал","Напружений нуарний трилер про подорож, яка перетворюється на боротьбу за виживання.","https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["Duck and Cover",1951,"Документальний, Історичний","Історичний короткометражний фільм про цивільну оборону часів холодної війни.","https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["Master Hands",1936,"Документальний","Промисловий документальний фільм про роботу на заводі.","https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["The Memphis Belle",1944,"Документальний, Історичний","Хроніка екіпажу американського бомбардувальника під час Другої світової війни.","https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["All My Babies",1953,"Документальний","Документальна стрічка про роботу акушерки та медичну допомогу.","https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["Under Western Stars",1938,"Вестерн, Музичний","Музичний вестерн із Роєм Роджерсом.","https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["Modesta",1956,"Драма, Короткометражний","Пуерториканська короткометражна стрічка з історичним значенням.","https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["The House I Live In",1945,"Документальний, Історичний","Короткометражна робота про толерантність і американське суспільство.","https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["The Middleton Family at the New York World's Fair",1939,"Документальний, Історичний","Історична стрічка про Всесвітню виставку в Нью-Йорку.","https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["San Francisco Earthquake and Fire",1906,"Документальний, Історичний","Рідкісна хроніка наслідків землетрусу та пожежі в Сан-Франциско.","https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["President McKinley Taking the Oath",1901,"Історичний, Хроніка","Рання кінохроніка інавгурації президента США Вільяма Мак-Кінлі.","https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"],
+["May Irwin Kiss",1896,"Короткометражний, Класика","Одна з найвідоміших ранніх кінозйомок поцілунку.","https://images.unsplash.com/photo-1494774157365-9e04c6720e03?auto=format&fit=crop&w=500&q=80","https://www.loc.gov/free-to-use/public-domain-films-from-the-national-film-registry/"]
+];
+let genre="all";
+function setGenre(g,b){genre=g;document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));b.classList.add("active");render()}
+function render(){
+ let q=document.getElementById("search").value.toLowerCase();
+ let list=films.filter(f=>(genre==="all"||f[2].toLowerCase().includes(genre))&&(f[0]+" "+f[2]+" "+f[3]).toLowerCase().includes(q));
+ document.getElementById("movies").innerHTML=list.map((f,i)=>`<article class="card"><img class="poster" src="${f[4]}" alt="${f[0]}"><div class="info"><div class="title">${f[0]}</div><div class="meta">${f[1]} · ${f[2]}</div><span class="tag">ВІДКРИТЕ ДЖЕРЕЛО</span><button class="watch" onclick="play(${films.indexOf(f)})">▶ Дивитися</button></div></article>`).join("");
+ document.getElementById("empty").style.display=list.length?"none":"block";
+}
+function play(i){let f=films[i];document.getElementById("pt").textContent=f[0]+" ("+f[1]+")";document.getElementById("pd").innerHTML=f[3]+'<br><br><a href="'+f[5]+'" target="_blank" rel="noopener">Відкрити сторінку першоджерела ↗</a>';document.getElementById("player").src=f[5];document.getElementById("modal").style.display="flex"}
+function closePlayer(){document.getElementById("player").src="";document.getElementById("modal").style.display="none"}
+function showHome(){document.getElementById("home").style.display="block";document.getElementById("page").style.display="none";window.scrollTo(0,0)}
+function showPage(type){document.getElementById("home").style.display="none";let p=document.getElementById("page");p.style.display="block";let content={
+about:"<h2>Про KinoUA</h2><p>KinoUA — незалежний каталог класичного кіно. Ми збираємо інформацію про твори з відкритим правовим статусом і додаємо власні описи, жанри та навігацію.</p><p>Мета сайту — зробити пошук легального класичного кіно простим для українського глядача.</p>",
+rules:"<h2>Правила</h2><p>Ми не розміщуємо піратські копії та не заявляємо права на чужі твори. Перед комерційним використанням будь-якого матеріалу необхідно перевіряти його ліцензію та правовий статус у відповідній юрисдикції.</p><p>Якщо ви є правовласником і вважаєте, що матеріал розміщено помилково, напишіть нам на contact@kinoua.example.</p>",
+privacy:"<h2>Конфіденційність</h2><p>Ця демонстраційна версія не створює облікових записів і не збирає персональні дані через власний сервер. Після підключення аналітики або реклами цю сторінку потрібно доповнити реальною політикою конфіденційності відповідно до використаних сервісів.</p>"
+}[type];p.innerHTML=content+'<p><a href="#" onclick="showHome();return false">← Повернутися до каталогу</a></p>';window.scrollTo(0,0)}
+render();
+</script>
+</body></html>
